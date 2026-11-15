@@ -8,8 +8,8 @@ Ez egy reszponzív projekt, többoldalas bemutatkozó weboldal a fiktív cég
 # Források
 =======
 https://depositphotos.com/hu/photo/tree-with-root-51362759.html
->>>>>>> 8b9b379154d6d059d1a418cdc79d24fd93ba65fc
 
+logó:ai
 # Használatin útmutató
 1. Klónozd vagy töltsd le a GitHUb repositoryt a szamítógépedre
 2. Nyisd meg a projekt mappáját

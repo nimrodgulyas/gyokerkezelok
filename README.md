@@ -14,5 +14,5 @@ https://depositphotos.com/hu/photo/tree-with-root-51362759.html
 1. Klónozd vagy töltsd le a GitHUb repositoryt a szamítógépedre
 2. Nyisd meg a projekt mappáját
 3. Kattints duplán az **'index.html'** fájlra, amely megnyitja a weboldalt a beállított böngészőben.
-4. A felső
+4. A felső navigációs menüben választhatsz a *Kezdőlap*, a *Rólunk*, és a *Növényeink* oldalak közül.
 

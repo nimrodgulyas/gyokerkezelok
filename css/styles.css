@@ -1,0 +1,152 @@
+:root {
+    --primary-green: #2d5a27;
+    --secondary-green: #4a7c44;
+    --light-green: #e8f0e6;
+    accent-brown: #8b5a2b;
+    --cream-bg: #faf8f5;
+    --text-dark: #1e261d;
+    --text-light: #ffffff;
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    --radius: 8px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: ‘Segoe UI’, Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--cream-bg);
+    color: var(--text-dark);
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* === FEJLÉC ÉS NAVIGÁCIÓ === */
+header {
+    background-color: var(--primary-green);
+    color: var(--text-light);
+    padding: 1rem 5%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: var(--shadow);
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+}
+
+.nav-links a {
+    padding: 0.5rem 0.8rem;
+    border-radius: var(--radius);
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    background-color: var(--secondary-green);
+}
+
+/* === FŐ TARTALMI TERÜLET === */
+main {
+    flex: 1;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 2rem 5%;
+}
+
+h1,
+h2,
+h3 {
+    color: var(--primary-green);
+    margin-bottom: 1rem;
+    line-height: 1.25;
+}
+
+h1 {
+    font-size: 2.2rem;
+}
+
+h2 {
+    font-size: 1.8rem;
+    border-bottom: 2px solid var(--light-green);
+    padding-bottom: 0.5rem;
+    margin-top: 2rem;
+}
+
+btn {
+    display: inline-block;
+    background-color: var(--accent-brown);
+    color: var(--text-light);
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--radius);
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn:hover {
+    background-color: #6f4620;
+    transform: translateY(-2px);
+}
+
+/* === HERO SZEKCIÓ (FŐOLDAL) === */
+.hero {
+    background: linear-gradient(rgba(30, 58, 27, 0.75), rgba(30, 58, 27, 0.75)),
+        url(‘https://unsplash.com’) center/cover no-repeat;
+    color: var(--text-light);
+    padding: 4.5rem 2rem;
+    border-radius: var(--radius);
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.hero h1 {
+    color: var(--text-light);
+    font-size: 2.6rem;
+    margin-bottom: 1rem;
+}
+
+.hero p {
+    font-size: 1.15rem;
+    max-width: 650px;
+    margin: 0 auto 1.8rem auto;
+}

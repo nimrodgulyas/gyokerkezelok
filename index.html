@@ -8,43 +8,44 @@
 </head>
 <body>
     <header>
-<nav aria-label="Fő navigáció">
-<img src="logo.png" alt="logo">
-        <a href="index.html"><button>Kezdőlap</button></a>
+<nav class="navbar" aria-label="Fő navigáció">
+<img src="logo.png" class="logo" alt="logo">
+<ul class="nav-links">
+        <a href="index.html" class="active"><button>Kezdőlap</button></a>
         <a href="rolunk.html"><button>Rólunk</button></a>
         <a href="novenyekrol.html"><button>Növényekről</button></a>
-
+</ul>
 </nav>
     </header>
 <main>
-    <section>
+    <section class="hero"> 
       <h1>Életre keltjük kerted minden szegletét</h1>
       <p>Saját nevelésű díszfák, örökzöldek és gyümölcstermők közvetlenül a termelőtől. Válogass több száz egészséges, hazai klímához szoktatott növényünk közül.</p>
-      <a href="novenyek.html">Fedezd fel kínálatunkat</a>
+      <a href="novenyek.html" class="btn">Fedezd fel kínálatunkat</a>
     </section>
 
     <section>
       <h2>Miért válassz minket?</h2>
-      <div>
-        <article>
-          <div>
-            <span>Minőség</span>
+      <div class="grid-container">
+        <article class="card">
+          <div class="card-content">
+            <span class="card-tag">Minőség</span>
             <h3>Edzett, erős gyökérzet</h3>
             <p>Növényeinket szabadföldben és konténerben is a hazai időjárási viszonyokhoz eddzük, így ültetés után gyorsan megerednek.</p>
           </div>
         </article>
 
-        <article>
-          <div>
-            <span>Szakértelem</span>
+        <article class="card"> 
+          <div class="card-content">
+            <span class="card-tag">Szakértelem</span>
             <h3>Ingyenes szaktanácsadás</h3>
             <p>Kertészmérnök kollégáink segítenek a talajadottságoknak és a fényviszonyoknak leginkább megfelelő fajták kiválasztásában.</p>
           </div>
         </article>
 
-        <article>
-          <div>
-            <span>Fenntarthatóság</span>
+        <article class="card">
+          <div class="card-content">
+            <span class="card-tag">Fenntarthatóság</span>
             <h3>Környezetbarát nevelés</h3>
             <p>Biológiai növényvédelmet és víztakarékos csepegtető öntözést alkalmazunk faiskolánk teljes területén.</p>
           </div>
@@ -52,7 +53,7 @@
       </div>
     </section>
 
-    <aside>
+    <aside class="info-banner">
       <h3> Őszi és tavaszi ültetési akció!</h3>
       <p>Látogass el hozzánk személyesen hétvégén is, és kérj egyedi árajánlatot sövénytelepítéshez vagy komplett kertépítéshez.</p>
     </aside>

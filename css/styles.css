@@ -9,15 +9,17 @@
     --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
     --radius: 8px;
 }
+
+
+
+ 
 body {
-    background-image: url('kepek/fejlec-removebg-preview.png');
+    background-image: url('../kepek/fejlec-removebg-preview.png');
     background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-}
-
-
-body {
+    background-position: center center;
+    background-size: 30%;
+    background-attachment: fixed;
+    background-size: 500px;
     font-family: ‘Segoe UI’, Roboto, Helvetica, Arial, sans-serif;
     background-color: var(--cream-bg);
     color: var(--text-dark);
@@ -53,16 +55,17 @@ header {
 
 .navbar {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    max-width: 1200px;
+    max-width: 900px;
+    gap: 1.5rem;
     margin: 0 auto;
-    padding: 0.8rem 2rem;
+    padding: 0.5rem 1rem;
     background: rgba(15, 28, 22, 0.75);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
     border: 1px solid rgba(16, 185, 129, 0.25);
-    border-radius: 100px;
+    border-radius: 50px;
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1);
     position: sticky;
     top: 20px;
@@ -71,6 +74,7 @@ header {
 }
 
 .logo {
+    justify-content: left;
     font-size: 1.5rem;
     font-weight: 700;
     letter-spacing: 0.5px;
@@ -79,7 +83,6 @@ header {
     gap: 0.5rem;
     text-decoration: none;
     background: linear-gradient(135deg, #ffffff 0%, #34d399 100%);
-    -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     transition: transform 0.3s ease;
 }
@@ -128,6 +131,7 @@ main {
 h1,
 h2,
 h3 {
+    font-weight: bold;
     color: var(--primary-green);
     margin-bottom: 1rem;
     line-height: 1.25;
@@ -184,31 +188,49 @@ h2 {
     margin: 0 auto 1.8rem auto;
 }
 
-grid-container {
+.grid-container {
 display: grid;
-grid-template-columns: repeat(3, 1fr);
+grid-template-columns: repeat(1, 2fr);
 gap: 1.8rem;
 margin-top: 1.5rem;
 }
 
+
+
 .card {
-background-color: #c27070;
-border-radius: var(--radius);
+display: flex; 
+align-items: center;
+gap: 30px; 
+margin-bottom: 20px;
+background-color: rgba(224, 144, 144, 0.548);
+border-radius: 10px;
 overflow: hidden;
 box-shadow: var(--shadow);
 border: 3px solid var(--light-green);
 display: flex;
-flex-direction: column;
 border-radius: 10px;
 padding: 20px;
 }
 
+.kartya:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
 .card img {
-width: 25%;
-height: 220px;
+width: 350px;
+height: 350px;
 object-fit: cover;
+border-radius: 5px;
+flex-shrink: 0;    
+}
+.card.forditott, .card.forditott h3 {
+  flex-direction: row-reverse;
 
 }
+.card.forditott p{
+    text-align: left;
+}
+
 
 .card-content {
 padding: 1.4rem;
@@ -236,6 +258,18 @@ font-weight: 700;
 color: var(--accent-brown);
 font-size: 1.1rem;
 }
+@media (max-width: 768px) {
+  .kartya, 
+  .kartya:nth-child(even) {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .kartya img {
+    width: 100%;
+    height: auto;
+  }
+}
 
 /* === KIEMELT INFORMÁCIÓS DOBOZ === */
 .info-banner {
@@ -255,7 +289,7 @@ margin-top: 1.5rem;
 }
 
 .contact-form {
-background-color: #ffffff;
+background-color: #ffffffaf;
 padding: 2rem;
 border-radius: var(--radius);
 box-shadow: var(--shadow);

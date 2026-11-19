@@ -9,21 +9,23 @@
 <body>
     
     <header>
-        <nav aria-label="Fő navigáció">
-        <img src="logo.png" alt="logo" >
+        <nav class="navbar" aria-label="Fő navigáció">
+        <!-- <img src="logo.png" class="logo" alt="logo" > -->
+        <ul class="nav-links">
         <a href="index.html"><button>Kezdőlap</button></a>
-        <a href="rolunk.html"><button>Rólunk</button></a>
+        <a href="rolunk.html" class="active"><button>Rólunk</button></a>
         <a href="novenyekrol.html"><button>Növényekről</button></a>
+        </ul>
     </header>
     </nav>
  <main>
     <h1>Rólunk és elérhetőségeink</h1>
     <p>A <strong>Gyökérkezelők Faiskola</strong> 2016 óta foglalkozik minőségi dísznövények és gyümölcsfa oltványok termesztésével. Családi vállalkozásként indultunk, mára pedig 4 hektáros területen várjuk a kertbarátokat és kertépítőket.</p>
 
-    <section>
+    <section class="contact-wrapper">
       <div>
         <h2>Elérhetőségek és Nyitvatartás</h2>
-        <div>
+        <div info-banner>
           <p><strong>📍 Cím:</strong> 6100 Kiskunfélegyháza, Kunbajai dűlő 14.</p>
           <p><strong>📞 Telefon:</strong> +36 30 445 4533</p>
           <p><strong>✉️ E-mail:</strong> gyokerkezelok@gmail.com</p>
@@ -38,17 +40,17 @@
       <div>
         <h2>Írj nekünk üzenetet!</h2>
         <form class="contact-form" action="mailto:gyokerkezelok@gmail.com" method="post" enctype="text/plain">
-          <div >
+          <div class="form-group">
             <label for="nev">Teljes név *</label>
             <input type="text" id="nev" name="nev" placeholder="Pl. Big T" required>
           </div>
 
-          <div >
+          <div class="form-group">
             <label for="email">E-mail cím *</label>
             <input type="email" id="email" name="email" placeholder="bigt@gmail.com" required>
           </div>
 
-          <div>
+          <div class="form-group">
             <label for="tema">Érdeklődés tárgya</label>
             <select id="tema" name="tema">
               <option value="keszlet">Növénykészlet / Árajánlat</option>
@@ -57,7 +59,7 @@
             </select>
           </div>
 
-          <div>
+          <div class="form-group">
             <label for="uzenet">Üzenet *</label>
             <textarea id="uzenet" name="uzenet" rows="4" placeholder="Írd le, miben segíthetünk..." required></textarea>
           </div>

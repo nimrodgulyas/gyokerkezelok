@@ -8,6 +8,7 @@ Ez egy reszponzív projekt, többoldalas bemutatkozó weboldal a fiktív cég
 # Források
 =======
 https://depositphotos.com/hu/photo/tree-with-root-51362759.html
+https://magyarmezogazdasag.hu/2021/03/01/neveljunk-embermeretu-fat/
 
 logó:ai
 # Használatin útmutató

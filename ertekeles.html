@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/styles.css">
-  <title>Gyökérkezelők | Értékelj minket</title>
+  <title>Gyökérkezelők | Értékelések</title>
 </head>
 
 <body>
@@ -38,8 +38,8 @@
           <label for="kertesz">Kivel találkoztál / kit értékelsz?</label>
           <select id="kertesz" name="kertesz">
             <option value="Mindkét kertészt">Mindkét kertészt</option>
-            <option value="Kovács János">Bulyéki Bence (Kertészmérnök)</option>
-            <option value="Nagy Eszter">Gulyás Nimród (Dísznövény szakértő)</option>
+            <option value="Bulyáki Bence">Bulyáki Bence (Kertészmérnök)</option>
+            <option value="Gukyás Nimród">Gukyás Nimród (Dísznövény szakértő)</option>
           </select>
         </div>
 
@@ -62,13 +62,18 @@
         <button type="submit" class="btn">Értékelés beküldése</button>
       </form>
 
-      <!-- Visszajelző üzenet (beküldés után jelenik meg) -->
+      <!-- Visszajelző üzenet -->
       <div id="visszajelzesDoboz" class="visszajelzes-doboz" style="display: none;">
         <h3>Köszönjük az értékelést, <span id="bekuldoNeve"></span>! 🌱</h3>
-        <p>Rögzítettük az értékelésedet (<strong id="bekuldottCsillag"></strong> csillag – <span id="bekuldottKertesz"></span>).</p>
-        <p class="bekuldott-szoveg" id="bekuldottUzenet"></p>
-        <a href="index.html" class="btn">Vissza a kezdőlapra</a>
+        <p>Véleményedet rögzítettük és már láthatod is lentebb a listában.</p>
+        <button type="button" class="btn" onclick="ujErtekeles()">Új értékelés írása</button>
       </div>
+    </section>
+
+    <!-- KORÁBBI ÉRTÉKELÉSEK SZEKCIÓ -->
+    <section class="korabbi-ertekelesek-szekcio">
+      <h2>Korábbi értékelések</h2>
+      <div id="ertekelesLista" class="ertekeles-lista"></div>
     </section>
   </main>
 
@@ -76,27 +81,96 @@
     <p>&copy; 2026 Gyökérkezelők Faiskola – Minden jog fenntartva.</p>
   </footer>
 
-  <!-- JavaScript az azonnali visszajelzéshez -->
   <script>
-    document.getElementById('ertekelesForm').addEventListener('submit', function(e) {
-      e.preventDefault(); // Megakadályozza az oldal újratöltését
+    // Alapértelmezett példa értékelések az új nevekkel
+    const alapErtekelesek = [
+      {
+        nev: "Tóth Gábor",
+        kertesz: "Bulyáki Bence",
+        csillag: 5,
+        uzenet: "Bence pillanatok alatt felásta a kötött talajt, és profin megmetszette a régi almafáinkat. Csak ajánlani tudom!",
+        datum: "2026. 11. 18."
+      },
+      {
+        nev: "Horváth Katalin",
+        kertesz: "Gukyás Nimród",
+        csillag: 5,
+        uzenet: "Nimród gyönyörű évelő ágyást tervezett az előkertünkbe, minden növény csodásan megeredt.",
+        datum: "2026. 11. 22."
+      },
+      {
+        nev: "Kiss Péter",
+        kertesz: "Mindkét kertészt",
+        csillag: 4,
+        uzenet: "Nagyon segítőkész csapat, egészséges és erős gyökérzetű örökzöldeket kaptunk tőlük.",
+        datum: "2026. 11. 25."
+      }
+    ];
 
-      // Adatok kiolvasása
+    function ertekelesekBetoltese() {
+      const mentett = localStorage.getItem('gyokerkezelok_ertekelesek_v2');
+      const lista = mentett ? JSON.parse(mentett) : alapErtekelesek;
+      megjelenites(lista);
+    }
+
+    function csillagokGeneralasa(szam) {
+      const teli = '★'.repeat(szam);
+      const ures = '☆'.repeat(5 - szam);
+      return teli + ures;
+    }
+
+    function megjelenites(lista) {
+      const kontener = document.getElementById('ertekelesLista');
+      kontener.innerHTML = '';
+
+      lista.forEach(item => {
+        const kartya = document.createElement('article');
+        kartya.className = 'ertekeles-kartya';
+        kartya.innerHTML = `
+          <div class="ertekeles-fejlec">
+            <div>
+              <strong>${item.nev}</strong>
+              <span class="ertekelt-celpont">• ${item.kertesz}</span>
+            </div>
+            <span class="ertekeles-csillagok">${csillagokGeneralasa(item.csillag)}</span>
+          </div>
+          <p class="ertekeles-szoveg">„${item.uzenet}”</p>
+          <span class="ertekeles-datum">${item.datum}</span>
+        `;
+        kontener.appendChild(kartya);
+      });
+    }
+
+    document.getElementById('ertekelesForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
       const nev = document.getElementById('nev').value;
       const kertesz = document.getElementById('kertesz').value;
-      const csillag = document.querySelector('input[name="csillag"]:checked').value;
+      const csillag = parseInt(document.querySelector('input[name="csillag"]:checked').value);
       const uzenet = document.getElementById('uzenet').value;
+      const ma = new Date().toLocaleDateString('hu-HU');
 
-      // Visszajelző doboz feltöltése
+      const ujElem = { nev, kertesz, csillag, uzenet, datum: ma };
+
+      const mentett = localStorage.getItem('gyokerkezelok_ertekelesek_v2');
+      const lista = mentett ? JSON.parse(mentett) : [...alapErtekelesek];
+      lista.unshift(ujElem);
+
+      localStorage.setItem('gyokerkezelok_ertekelesek_v2', JSON.stringify(lista));
+      megjelenites(lista);
+
       document.getElementById('bekuldoNeve').textContent = nev;
-      document.getElementById('bekuldottKertesz').textContent = kertesz;
-      document.getElementById('bekuldottCsillag').textContent = csillag;
-      document.getElementById('bekuldottUzenet').textContent = '„' + uzenet + '”';
-
-      // Űrlap elrejtése, visszajelzés megjelenítése
       document.getElementById('ertekelesForm').style.display = 'none';
       document.getElementById('visszajelzesDoboz').style.display = 'block';
+      this.reset();
     });
+
+    function ujErtekeles() {
+      document.getElementById('visszajelzesDoboz').style.display = 'none';
+      document.getElementById('ertekelesForm').style.display = 'flex';
+    }
+
+    ertekelesekBetoltese();
   </script>
 </body>
 

@@ -397,3 +397,128 @@ grid-template-columns: 1fr;
 .logo:hover img {
     filter: drop-shadow(0 0 8px rgba(52, 211, 153, 0.6));
 }
+/* Kártyák rögzítése a képernyő két szélén */
+.kertesz-kartya-kontener {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 210px;
+  height: 420px;
+  perspective: 1000px; /* 3D hatáshoz szükséges */
+  cursor: pointer;
+  z-index: 999;
+  font-family: sans-serif;
+}
+
+.bal-szel {
+  left: 20px;
+}
+
+.jobb-szel {
+  right: 20px;
+}
+
+/* A forgó belső rész */
+.kertesz-kartya-belso {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s cubic-bezier(0.4, 0.2, 0.2, 1);
+  transform-style: preserve-3d;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  border-radius: 12px;
+}
+
+/* Kattintáskor megfordul */
+.kertesz-kartya-kontener.megforditva .kertesz-kartya-belso {
+  transform: rotateY(180deg);
+}
+
+/* Előlap és hátlap közös stílusa */
+.kertesz-kartya-elolap,
+.kertesz-kartya-hatlap {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border-radius: 12px;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+/* Előlap: kép + kis felirat */
+.kertesz-kartya-elolap {
+  background-color: #46573b; /* Az oldalad zöld színe */
+}
+
+.kertesz-kartya-elolap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.kattints-jelveny {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #7c4d25; /* A gombod barna színe */
+  color: #ffffff;
+  font-size: 12px;
+  padding: 5px 12px;
+  border-radius: 20px;
+  white-space: nowrap;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+}
+
+/* Hátlap: profiladatok */
+.kertesz-kartya-hatlap {
+  background-color: #46573b; /* Az oldalad zöld színe */
+  color: #ffffff;
+  transform: rotateY(180deg);
+  padding: 20px 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #7c4d25;
+}
+
+.kertesz-kartya-hatlap h3 {
+  margin: 0 0 5px 0;
+  font-size: 18px;
+  color: #ffffff;
+}
+
+.kertesz-kartya-hatlap .titulus {
+  margin: 0 0 12px 0;
+  font-size: 12px;
+  font-weight: bold;
+  color: #e8c7b8; /* A kártyáid világos pasztell árnyalata */
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.kertesz-kartya-hatlap .leiras {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.45;
+  color: #f3f3ee;
+}
+
+.vissza-jelveny {
+  margin-top: auto;
+  font-size: 11px;
+  color: #e8c7b8;
+  opacity: 0.85;
+}
+
+/* Kisebb kijelzőkön (pl. laptop/mobil) elrejtjük, hogy ne takarja ki a szöveget */
+@media (max-width: 1280px) {
+  .kertesz-kartya-kontener {
+    display: none;
+  }
+}

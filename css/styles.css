@@ -562,3 +562,102 @@ grid-template-columns: 1fr;
     display: none;
   }
 }
+/* Értékelj minket link a kártya hátlapján */
+.ertekeles-link {
+  display: inline-block;
+  width: 100%;
+  padding: 7px 0;
+  margin-bottom: 8px;
+  background-color: #7c4d25;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: 6px;
+  transition: background-color 0.2s ease;
+}
+
+.ertekeles-link:hover {
+  background-color: #965d2d;
+}
+
+/* Értékelés oldal (ertekeles.html) űrlap stílusa */
+.ertekeles-szekcio {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 30px;
+  background-color: #f3f3ee;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  border-top: 5px solid #46573b;
+}
+
+.ertekeles-urlap {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.urlap-csoport {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  gap: 6px;
+}
+
+.urlap-csoport label {
+  font-weight: bold;
+  color: #46573b;
+  font-size: 14px;
+}
+
+.urlap-csoport input[type="text"],
+.urlap-csoport select,
+.urlap-csoport textarea {
+  padding: 10px 12px;
+  border: 1px solid #c5c9be;
+  border-radius: 6px;
+  font-size: 14px;
+  font-family: inherit;
+  background-color: #ffffff;
+}
+
+.csillag-valaszto {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  background-color: #ffffff;
+  padding: 10px 12px;
+  border-radius: 6px;
+  border: 1px solid #c5c9be;
+}
+
+.csillag-valaszto label {
+  font-weight: normal;
+  color: #333333;
+  cursor: pointer;
+}
+
+/* Visszajelző üzenet doboz */
+.visszajelzes-doboz {
+  margin-top: 25px;
+  padding: 25px;
+  background-color: #46573b;
+  color: #ffffff;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.visszajelzes-doboz h3 {
+  margin-top: 0;
+  color: #e8c7b8;
+}
+
+.bekuldott-szoveg {
+  font-style: italic;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 12px;
+  border-radius: 6px;
+  margin: 15px 0 20px 0;
+}

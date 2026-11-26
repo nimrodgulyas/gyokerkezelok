@@ -660,3 +660,70 @@ grid-template-columns: 1fr;
   border-radius: 6px;
   margin: 15px 0 20px 0;
 }
+/* Korábbi értékelések szekció és kártyák */
+.korabbi-ertekelesek-szekcio {
+  max-width: 600px;
+  margin: 30px auto 50px auto;
+}
+
+.korabbi-ertekelesek-szekcio h2 {
+  color: #46573b;
+  margin-bottom: 18px;
+  text-align: center;
+}
+
+.ertekeles-lista {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.ertekeles-kartya {
+  background-color: #ffffff;
+  border-left: 5px solid #7c4d25;
+  padding: 18px 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  text-align: left;
+}
+
+.ertekeles-fejlec {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.ertekeles-fejlec strong {
+  color: #46573b;
+  font-size: 16px;
+}
+
+.ertekelt-celpont {
+  font-size: 13px;
+  color: #7c4d25;
+  font-weight: bold;
+}
+
+.ertekeles-csillagok {
+  color: #d99b66;
+  font-size: 16px;
+  letter-spacing: 1px;
+}
+
+.ertekeles-szoveg {
+  margin: 0 0 10px 0;
+  color: #333333;
+  font-size: 14px;
+  line-height: 1.5;
+  font-style: italic;
+}
+
+.ertekeles-datum {
+  display: block;
+  font-size: 12px;
+  color: #777777;
+  text-align: right;
+}

@@ -27,7 +27,6 @@
       <h1>Értékeld a kertészeinket és szolgáltatásunkat!</h1>
       <p>Véleményed segít, hogy még szebbé varázsoljuk a kerteket.</p>
 
-      <!-- Kérdőív űrlap -->
       <form id="ertekelesForm" class="ertekeles-urlap">
         <div class="urlap-csoport">
           <label for="nev">Neved:</label>
@@ -39,7 +38,7 @@
           <select id="kertesz" name="kertesz">
             <option value="Mindkét kertészt">Mindkét kertészt</option>
             <option value="Bulyáki Bence">Bulyáki Bence (Kertészmérnök)</option>
-            <option value="Gukyás Nimród">Gukyás Nimród (Dísznövény szakértő)</option>
+            <option value="Gulyás Nimród">Gukyás Nimród (Dísznövény szakértő)</option>
           </select>
         </div>
 
@@ -62,7 +61,6 @@
         <button type="submit" class="btn">Értékelés beküldése</button>
       </form>
 
-      <!-- Visszajelző üzenet -->
       <div id="visszajelzesDoboz" class="visszajelzes-doboz" style="display: none;">
         <h3>Köszönjük az értékelést, <span id="bekuldoNeve"></span>! 🌱</h3>
         <p>Véleményedet rögzítettük és már láthatod is lentebb a listában.</p>
@@ -70,7 +68,6 @@
       </div>
     </section>
 
-    <!-- KORÁBBI ÉRTÉKELÉSEK SZEKCIÓ -->
     <section class="korabbi-ertekelesek-szekcio">
       <h2>Korábbi értékelések</h2>
       <div id="ertekelesLista" class="ertekeles-lista"></div>
@@ -82,7 +79,6 @@
   </footer>
 
   <script>
-    // Alapértelmezett példa értékelések az új nevekkel
     const alapErtekelesek = [
       {
         nev: "Tóth Gábor",

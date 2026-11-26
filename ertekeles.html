@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/styles.css">
+  <title>Gyökérkezelők | Értékelj minket</title>
+</head>
+
+<body>
+  <header>
+    <nav class="navbar" aria-label="Fő navigáció">
+      <ul class="nav-links">
+        <a href="index.html" class="logo">
+          <img src="logo.png" alt="logo">
+        </a>
+        <a href="index.html"><strong>Kezdőlap</strong></a>
+        <a href="rolunk.html"><strong>Rólunk</strong></a>
+        <a href="novenyekrol.html"><strong>Növényekről</strong></a>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="ertekeles-szekcio">
+      <h1>Értékeld a kertészeinket és szolgáltatásunkat!</h1>
+      <p>Véleményed segít, hogy még szebbé varázsoljuk a kerteket.</p>
+
+      <!-- Kérdőív űrlap -->
+      <form id="ertekelesForm" class="ertekeles-urlap">
+        <div class="urlap-csoport">
+          <label for="nev">Neved:</label>
+          <input type="text" id="nev" name="nev" placeholder="Pl. Szabó Anna" required>
+        </div>
+
+        <div class="urlap-csoport">
+          <label for="kertesz">Kivel találkoztál / kit értékelsz?</label>
+          <select id="kertesz" name="kertesz">
+            <option value="Mindkét kertészt">Mindkét kertészt</option>
+            <option value="Kovács János">Bulyéki Bence (Kertészmérnök)</option>
+            <option value="Nagy Eszter">Gulyás Nimród (Dísznövény szakértő)</option>
+          </select>
+        </div>
+
+        <div class="urlap-csoport">
+          <label>Hány csillagra értékeled a munkánkat?</label>
+          <div class="csillag-valaszto">
+            <label><input type="radio" name="csillag" value="5" checked> ★★★★★ (5 - Kiváló)</label>
+            <label><input type="radio" name="csillag" value="4"> ★★★★☆ (4 - Nagyon jó)</label>
+            <label><input type="radio" name="csillag" value="3"> ★★★☆☆ (3 - Megfelelő)</label>
+            <label><input type="radio" name="csillag" value="2"> ★★☆☆☆ (2 - Fejlesztendő)</label>
+            <label><input type="radio" name="csillag" value="1"> ★☆☆☆☆ (1 - Elégedetlen)</label>
+          </div>
+        </div>
+
+        <div class="urlap-csoport">
+          <label for="uzenet">Rövid szöveges visszajelzés:</label>
+          <textarea id="uzenet" name="uzenet" rows="4" placeholder="Írd le tapasztalataidat a növényekkel vagy a tanácsadással kapcsolatban..." required></textarea>
+        </div>
+
+        <button type="submit" class="btn">Értékelés beküldése</button>
+      </form>
+
+      <!-- Visszajelző üzenet (beküldés után jelenik meg) -->
+      <div id="visszajelzesDoboz" class="visszajelzes-doboz" style="display: none;">
+        <h3>Köszönjük az értékelést, <span id="bekuldoNeve"></span>! 🌱</h3>
+        <p>Rögzítettük az értékelésedet (<strong id="bekuldottCsillag"></strong> csillag – <span id="bekuldottKertesz"></span>).</p>
+        <p class="bekuldott-szoveg" id="bekuldottUzenet"></p>
+        <a href="index.html" class="btn">Vissza a kezdőlapra</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Gyökérkezelők Faiskola – Minden jog fenntartva.</p>
+  </footer>
+
+  <!-- JavaScript az azonnali visszajelzéshez -->
+  <script>
+    document.getElementById('ertekelesForm').addEventListener('submit', function(e) {
+      e.preventDefault(); // Megakadályozza az oldal újratöltését
+
+      // Adatok kiolvasása
+      const nev = document.getElementById('nev').value;
+      const kertesz = document.getElementById('kertesz').value;
+      const csillag = document.querySelector('input[name="csillag"]:checked').value;
+      const uzenet = document.getElementById('uzenet').value;
+
+      // Visszajelző doboz feltöltése
+      document.getElementById('bekuldoNeve').textContent = nev;
+      document.getElementById('bekuldottKertesz').textContent = kertesz;
+      document.getElementById('bekuldottCsillag').textContent = csillag;
+      document.getElementById('bekuldottUzenet').textContent = '„' + uzenet + '”';
+
+      // Űrlap elrejtése, visszajelzés megjelenítése
+      document.getElementById('ertekelesForm').style.display = 'none';
+      document.getElementById('visszajelzesDoboz').style.display = 'block';
+    });
+  </script>
+</body>
+
+</html>

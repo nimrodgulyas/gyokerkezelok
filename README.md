@@ -3,8 +3,8 @@
 Ez egy reszponzív projekt, többoldalas bemutatkozó weboldal a fiktív cég 
 
 # Csoporttagok és munkamegosztás
-* **[Bulyáki Bence]** - Html struktúra kialakítása + CSS 1,5 + Főoldal + űrlap fele
-* **[Gulyás Nimród]** - Vizualizáló, Lombkorona + űrlap fele + CSS 1,5
+* **[Bulyáki Bence]** - Html struktúra kialakítása + CSS megosztva + Főoldal + űrlap fele
+* **[Gulyás Nimród]** - Vizualizáló, Lombkorona + űrlap fele + CSS megosztva
 # Források
 =======
 https://depositphotos.com/hu/photo/tree-with-root-51362759.html
